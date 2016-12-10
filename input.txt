@@ -1,28 +1,20 @@
-NUMBER OF BLOCKS:
+Number of blocks:
 A B C D E F G
 
-DEFINE INITIAL STATE:
-TABLE[A]
-ON[B:A]
-CLEAR[B]
+Define initial state:
 TABLE[C]
-CLEAR[C]
-TABLE[D]
-CLEAR[D]
-TABLE[E]
-ON[F:E]
-ON[G:F]
-CLEAR[G]
-
-DEFINE FINAL STATE:
-TABLE[A]
-CLEAR[A]
+ON[D:C]
 TABLE[B]
-CLEAR[B]
-TABLE[C]
-CLEAR[C]
+ON[E:B]
+TABLE[A]
+ON[G:A]
+TABLE[F]
+
+Define final state:
+TABLE[G]
+ON[B:G]
+ON[A:B]
+TABLE[F]
+ON[C:F]
 TABLE[D]
 ON[E:D]
-ON[F:E]
-ON[G:F]
-CLEAR[G]

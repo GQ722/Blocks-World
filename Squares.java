@@ -4,13 +4,17 @@
 
 public class Squares
 {
+    //initialize with the empty string
     String square = "";
 
+    //Constructor
     Squares(String square){
         this.square = square;
     }
 
-    Squares(Squares repeat){
-        this.square = repeat.square;
+    //Copy Constructor
+    Squares(Squares square2){
+        this.square = square2.square;
     }
+
 }

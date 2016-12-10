@@ -1,14 +1,32 @@
-Reading the file input.txt
-This may take a while depending on the number of blocks.
-UNSTACK[B:A]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[E],	ON[F:E],	ON[G:F],	CLEAR[G],	MOVE[B]
-PUT_DOWN[B]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[E],	ON[F:E],	ON[G:F],	CLEAR[G],	TABLE[B],	CLEAR[B],	NOOP
-UNSTACK[G:F]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[E],	ON[F:E],	CLEAR[F],	TABLE[B],	CLEAR[B],	MOVE[G]
-PUT_DOWN[G]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[E],	ON[F:E],	CLEAR[F],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	NOOP
-UNSTACK[F:E]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[E],	CLEAR[E],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	MOVE[F]
-PUT_DOWN[F]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[E],	CLEAR[E],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	TABLE[F],	CLEAR[F],	NOOP
-PICK_UP[E]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	CLEAR[D],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	TABLE[F],	CLEAR[F],	MOVE[E]
-STACK[E:D]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	ON[E:D],	CLEAR[E],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	TABLE[F],	CLEAR[F],	NOOP
-PICK_UP[F]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	ON[E:D],	CLEAR[E],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	MOVE[F]
-STACK[F:E]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	ON[E:D],	ON[F:E],	CLEAR[F],	TABLE[B],	CLEAR[B],	TABLE[G],	CLEAR[G],	NOOP
-PICK_UP[G]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	ON[E:D],	ON[F:E],	CLEAR[F],	TABLE[B],	CLEAR[B],	MOVE[G]
-STACK[G:F]	:TABLE[A],	CLEAR[A],	TABLE[C],	CLEAR[C],	TABLE[D],	ON[E:D],	ON[F:E],	ON[G:F],	CLEAR[G],	TABLE[B],	CLEAR[B],	NOOP
+Reading the file [input.txt]
+Generating states may take a while depending on the number of blocks (currently supports up to 8 blocks).
+
+Action taken: UNSTACK[D:C]	 New State => TABLE[C],		CLEAR[C],	TABLE[B],		ON[E:B], or ABOVE[E:B],		CLEAR[E],	TABLE[A],		ON[G:A], or ABOVE[G:A],		CLEAR[G],	TABLE[F],		CLEAR[F],	MOVE[D],	 NOOP
+
+Action taken: PUT_DOWN[D]	 New State => TABLE[C],		CLEAR[C],	TABLE[B],		ON[E:B], or ABOVE[E:B],		CLEAR[E],	TABLE[A],		ON[G:A], or ABOVE[G:A],		CLEAR[G],	TABLE[F],		CLEAR[F],	TABLE[D],		CLEAR[D],	NOOP 
+
+Action taken: PICK_UP[C]	 New State => TABLE[B],		ON[E:B], or ABOVE[E:B],		CLEAR[E],	TABLE[A],		ON[G:A], or ABOVE[G:A],		CLEAR[G],	TABLE[F],		CLEAR[F],	TABLE[D],		CLEAR[D],	MOVE[C],	 NOOP
+
+Action taken: STACK[C:F]	 New State => TABLE[B],		ON[E:B], or ABOVE[E:B],		CLEAR[E],	TABLE[A],		ON[G:A], or ABOVE[G:A],		CLEAR[G],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		CLEAR[D],	NOOP 
+
+Action taken: UNSTACK[G:A]	 New State => TABLE[B],		ON[E:B], or ABOVE[E:B],		CLEAR[E],	TABLE[A],		CLEAR[A],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		CLEAR[D],	MOVE[G],	 NOOP
+
+Action taken: PUT_DOWN[G]	 New State => TABLE[B],		ON[E:B], or ABOVE[E:B],		CLEAR[E],	TABLE[A],		CLEAR[A],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		CLEAR[D],	TABLE[G],		CLEAR[G],	NOOP 
+
+Action taken: UNSTACK[E:B]	 New State => TABLE[B],		CLEAR[B],	TABLE[A],		CLEAR[A],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		CLEAR[D],	TABLE[G],		CLEAR[G],	MOVE[E],	 NOOP
+
+Action taken: STACK[E:D]	 New State => TABLE[B],		CLEAR[B],	TABLE[A],		CLEAR[A],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		ON[E:D], or ABOVE[E:D],		CLEAR[E],	TABLE[G],		CLEAR[G],	NOOP 
+
+Action taken: PICK_UP[B]	 New State => TABLE[A],		CLEAR[A],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		ON[E:D], or ABOVE[E:D],		CLEAR[E],	TABLE[G],		CLEAR[G],	MOVE[B],	 NOOP
+
+Action taken: STACK[B:G]	 New State => TABLE[A],		CLEAR[A],	TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		ON[E:D], or ABOVE[E:D],		CLEAR[E],	TABLE[G],		ON[B:G], or ABOVE[B:G],		CLEAR[B],	NOOP 
+
+Action taken: PICK_UP[A]	 New State => TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		ON[E:D], or ABOVE[E:D],		CLEAR[E],	TABLE[G],		ON[B:G], or ABOVE[B:G],		CLEAR[B],	MOVE[A],	 NOOP
+
+Action taken: STACK[A:B]	 New State => TABLE[F],		ON[C:F], or ABOVE[C:F],		CLEAR[C],	TABLE[D],		ON[E:D], or ABOVE[E:D],		CLEAR[E],	TABLE[G],		ON[B:G], or ABOVE[B:G],		ON[A:B], or ABOVE[A:B],		CLEAR[A],	NOOP 
+
+Total execution time: 2.683 sec
+
+Developed by: Devesh Patel
+CS 4850 Foundation of Artificial Intelligence, 
+Wright State University
